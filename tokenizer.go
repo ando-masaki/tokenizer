@@ -13,6 +13,7 @@ package tokenizer
 //
 // Alternatively you can request a tokenizer using OpenAI's model name, the
 // following OpenAI models are supported:
+// - O4
 // - O4Mini
 // - O3
 // - O3Mini
@@ -106,6 +107,7 @@ const (
 	O1Mini                   Model = "o1-mini"
 	O3                       Model = "o3"
 	O3Mini                   Model = "o3-mini"
+	O4                       Model = "o4"
 	O4Mini                   Model = "o4-mini"
 	GPT41                    Model = "gpt-4.1"
 	GPT4o                    Model = "gpt-4o"
@@ -199,7 +201,7 @@ func Get(encoding Encoding) (Codec, error) {
 // is returned.
 func ForModel(model Model) (Codec, error) {
 	switch model {
-	case O1, O1Preview, O1Mini, GPT41, GPT4o, O3, O3Mini, O4Mini:
+	case O1, O1Preview, O1Mini, GPT41, GPT4o, O3, O3Mini, O4Mini, O4:
 		return Get(O200kBase)
 
 	case GPT4, GPT35, GPT35Turbo, TextEmbeddingAda002:
